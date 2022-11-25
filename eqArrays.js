@@ -1,19 +1,13 @@
 const eqArrays = function(arr1, arr2) {
-    let result = true;
-    for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]){
-            result = false;
-            console.log(`result --> ${result}`);
-            return false;
-        }
+    if (arr1.length !== arr2.length) {
+      return false;
     }
-    console.log(`result --> ${result}`);
-    return true;
+    for (let i = 0; i < arr2.length; i++) {
+      if (arr2[i] !== arr1[i]) {
+        return false;
+      }
+    }
+    return true; 
 };
-
-// TEST CODE
-eqArrays([1, 2, 3], [1, 2, 3]) // => true
-eqArrays([1, 2, 3], [3, 2, 1]) // => false
-
-eqArrays(["1", "2", "3"], ["1", "2", "3"]) // => true
-eqArrays(["1", "2", "3"], ["1", "2", 3]) // => false
+  
+module.exports = eqArrays;
